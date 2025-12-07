@@ -1,0 +1,13 @@
+{
+    "block.entity_block.entity_block": "Entity Block",
+    "block.entity_block.entity_block.type": "Entity ID:",
+    "block.entity_block.entity_block.nbt": "Entity NBT:",
+    "block.entity_block.entity_block.offset": "Relative Position:",
+    "block.entity_block.entity_block.offset.x": "Relative Position X",
+    "block.entity_block.entity_block.offset.y": "Relative Position Y",
+    "block.entity_block.entity_block.offset.z": "Relative Position Z",
+    "block.entity_block.entity_block.final_state": "Turns Into:",
+    "block.entity_block.entity_block.invalid_id": "Invalid entity ID '%s'",
+    "block.entity_block.entity_block.invalid_nbt": "Invalid entity NBT '%s'",
+    "block.entity_block.entity_block.invalid_state": "Invalid block ID '%s'"
+}
