@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "entity_block",
+	"version": "${version}",
+	"name": "Entity Block",
+	"description": "Adds the Entity Block to make creating custom structures easier",
+	"authors": [
+		"Pneumono_"
+	],
+	"contact": {
+		"homepage": "https://github.com/PneumonoIsNotAvailable/EntityBlock",
+		"sources": "https://github.com/PneumonoIsNotAvailable/EntityBlock",
+		"issues": "https://github.com/PneumonoIsNotAvailable/EntityBlock/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/entity_block/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.pneumono.entityblock.EntityBlock"
+		],
+		"client": [
+			"net.pneumono.entityblock.EntityBlockClient"
+		]
+	},
+	"mixins": [
+		"entity_block.mixins.json",
+		{
+			"config": "entity_block.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.18.1",
+		"minecraft": ">=1.21.9 <=1.21.10",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
