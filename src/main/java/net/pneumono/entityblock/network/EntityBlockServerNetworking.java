@@ -8,7 +8,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.TagParser;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerPlayer;
 import net.pneumono.entityblock.EntityBlockMain;
 import net.pneumono.entityblock.content.EntityBlockEntity;
 
@@ -25,11 +25,11 @@ public class EntityBlockServerNetworking {
 
     private static void registerReceivers() {
         ServerPlayNetworking.registerGlobalReceiver(EditEntityBlockPayload.FINISH_ID, (payload, context) -> {
-            Level level = context.player().level();
+            ServerPlayer player = context.player();
 
             ResourceLocation entityType = ResourceLocation.tryParse(payload.entityType());
             if (entityType == null || !BuiltInRegistries.ENTITY_TYPE.containsKey(entityType)) {
-                context.player().sendSystemMessage(Component.translatable(
+                player.sendSystemMessage(Component.translatable(
                         "block.entity_block.entity_block.invalid_id",
                         payload.entityType()
                 ));
@@ -40,23 +40,23 @@ public class EntityBlockServerNetworking {
             try {
                 tag = TagParser.parseCompoundFully(payload.nbt());
             } catch (CommandSyntaxException e) {
-                context.player().sendSystemMessage(Component.translatable(
+                player.sendSystemMessage(Component.translatable(
                         "block.entity_block.entity_block.invalid_nbt",
-                        payload.entityType()
+                        payload.nbt()
                 ));
                 return;
             }
 
             ResourceLocation finalState = ResourceLocation.tryParse(payload.finalState());
             if (finalState == null || !BuiltInRegistries.BLOCK.containsKey(finalState)) {
-                context.player().sendSystemMessage(Component.translatable(
+                player.sendSystemMessage(Component.translatable(
                         "block.entity_block.entity_block.invalid_state",
-                        payload.entityType()
+                        payload.finalState()
                 ));
                 return;
             }
 
-            if (level.getBlockEntity(payload.pos()) instanceof EntityBlockEntity blockEntity) {
+            if (player.level().getBlockEntity(payload.pos()) instanceof EntityBlockEntity blockEntity) {
                 blockEntity.setEntityType(entityType);
                 blockEntity.setTag(tag);
                 blockEntity.setOffset(payload.offset());
