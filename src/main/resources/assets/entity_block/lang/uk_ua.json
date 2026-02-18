@@ -7,8 +7,8 @@
     "block.entity_block.entity_block.offset.y": "Відносна позиція Y",
     "block.entity_block.entity_block.offset.z": "Відносна позиція Z",
     "block.entity_block.entity_block.final_state": "Перетворення на:",
-    "block.entity_block.entity_block.invalid_id": "Недісний ID сутности: «%s»",
+    "block.entity_block.entity_block.invalid_id": "Недійсний ID сутности: «%s»",
     "block.entity_block.entity_block.invalid_nbt": "Недійсний NBT сутности: «%s»",
-    "block.entity_block.entity_block.invalid_state": "Недісний ID блока: «%s»",
+    "block.entity_block.entity_block.invalid_state": "Недійсний ID блока: «%s»",
     "modmenu.descriptionTranslation.entity_block": "Додає блок сутности, аби полегшити створення власних структур."
 }
